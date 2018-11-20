@@ -9,12 +9,34 @@
     <div class="container">
       <h1>SolFed Mailer</h1>
       
+       <div class="input-group">
+        <input id="email" class="form-control" value="kemptownlet@fox-and-sons.co.uk">
+      </div>
+      
       <div class="input-group">
-        <textarea class="form-control">Hi,
+        <input id="subject" class="form-control" value="Hi">
+      </div>
+      
+      <div class="input-group">
+        <textarea id="message" class="form-control">Hi,
 I'm emailing to express my concern over your agency, Fox and Sons.
         </textarea>
       </div>
+      
+       <div class="input-group">
+         <button class="form-control">Send</button>
+      </div>
     
     </div>
-  </bod>
+    
+    <script>
+      document.querySelector("button").onclick = function() {
+          const email = document.querySelector("#email").value;
+          const subject = document.querySelector("#subject").value;
+          const message = document.querySelector("#message").value;
+        
+        location.replace(`mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(subject)}&message=${encodeURIComponent(message)}`);
+}};
+    </script>
+  </body>
 </html>
